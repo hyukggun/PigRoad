@@ -1,11 +1,17 @@
 class Menu {
   final String name;
-  final int price;
-  final double starRate;
+  final num price;
+  final num starRate;
+  final String? image;
 
-  const Menu(this.name, this.price, this.starRate);
-}
+  Menu({required this.name, this.price = 0, this.starRate = 1.0, this.image});
 
-class _MenuImpl extends Menu {
-  _MenuImpl(super.name, super.price, super.starRate);
+  factory Menu.fromJson(Map<String, dynamic> json) {
+    return Menu(
+      name: json['name'],
+      price: json['price'],
+      starRate: json['starRate'],
+      image: json['image'],
+    );
+  }   
 }
