@@ -1,5 +1,7 @@
-import 'package:flutter/foundation.dart';
-import 'package:pig_road/korean_foods_store.dart';
+import 'package:pig_road/model/korean_restaurants.dart';
+import 'package:pig_road/model/western_restaurants.dart';
+
+import 'model/restaurant.dart';
 
 enum FoodCategory {
   korean(title: '한식'),
@@ -11,12 +13,12 @@ enum FoodCategory {
 
   final String title;
 
-  FoodsStore get store {
+  List<Restaurant> get restaurantList {
     switch (this) {
       case FoodCategory.korean:
-        return KoreanFoodsStore();
+        return koreanRestaurants;
       case FoodCategory.western:
-        return WesternFoodsStore();
+        return westernRestaurants;
     }
   }
 }
